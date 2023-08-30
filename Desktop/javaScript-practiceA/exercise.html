@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+   <button id="todo-button" onclick="todoButton(); style" style="margin-bottom: 8px;">Click me </button>
+
+   <div id="counter">
+    0
+   </div>
+   <button onclick="incraeseCounter()" style="margin-left:0px ; background-color: rgb(1, 24, 74); color: aliceblue;">up</button>
+   <button onclick="reduceCount ();" style="margin-left: 6px; background-color:red ; color: aliceblue;"> down</button>
+
+   <div id="cart"> </div>
+   <button onclick="addTocart ('Apple')"> Apple</button>
+   <button onclick="addTocart ('Tomato')"> Tomato</button>
+   <button onclick="addTocart ('Eggs')"> Eggs</button>
+   <button onclick="clearCart()"> Clear</button>
+
+  <script>
+    function greeting(firstName){
+      console.log("\"Hello " + firstName)
+    };
+
+    function toUpper(str){
+      let string = str.toUpperCase();
+      console.log(string);
+    };
+
+    function toConvert(length) {
+      let roundedValue = Math.round(length*2.45);
+      console.log(roundedValue);
+    };
+    
+
+
+
+
+     let lowercase = ['hello', 'bobby']
+    function toUpper1(lowercase){
+      let UpperCase = [];
+
+        lowercase.forEach(function (r){
+          UpperCase.push(r.toUpperCase())
+        });
+        
+        console.log(UpperCase);
+
+    };
+
+
+    
+    function toUpper2(smallcase){
+      let bigCase = [];
+      
+     smallcase.forEach(function(str){
+      bigCase.push(str.toUpperCase())
+     });
+
+     console.log(bigCase);
+
+    };
+    let smallcase = ['hello', 'bobby']
+
+
+    greeting("simon\"");
+    toUpper("simon");
+    toConvert(20);
+    toUpper1(lowercase);
+    toUpper2(smallcase);
+ 
+    //exercise8
+    function todoButton(){
+      let button = document.getElementById("todo-button");
+       button.innerText = "DONE"; 
+       button.style.backgroundColor = "blue";
+       button.style.color = "white";
+    }
+let count =0
+    function incraeseCounter(){
+      count = count+1;
+      let div = document.getElementById('counter');
+      div.innerText = count;
+      }
+        
+      function reduceCount (){
+        count = count-1;
+      let div = document.getElementById('counter');
+      div.innerText = count;
+      }
+    //exercise 9
+
+    const div = document.getElementById('cart');
+
+    function addTocart (foods){
+      let content = document.createElement('div');
+      content.innerText = foods;
+      div.appendChild(content);
+    }
+    function clearCart(){
+      div.innerHTML = '';
+    }
+
+
+
+    let lapsCompleted = 0;
+      function incrementLap(){
+        lapsCompleted = lapsCompleted +1
+      }
+      incrementLap();
+      incrementLap();
+      console.log (lapsCompleted);
+
+      let box = document.createElement('div')
+      box.id = 'empty-div'
+      box.innerText = 'hey'
+console.log(box)
+
+  </script>
+</body>
+</html>

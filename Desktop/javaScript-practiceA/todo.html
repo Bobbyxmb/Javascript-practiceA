@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>my Todo website</title>
+  </head>
+  <body>
+    <input type="text" placeholder="Add your todo" id="todo" />
+    <input id="due-dates" type="date" />
+    <button
+      style="
+        background-color: gold;
+        color: #ffffff;
+        border-radius: 4px;
+        border-color: blue;
+      "
+      onclick="addTodo()"
+    >
+      Add todo
+    </button>
+    
+    <!--this is a javascript code that a kind of teaches me how to create todo list in a html page and how to create a html element in javascript-->
+
+    <div id="todo-list"></div>
+    <script>
+      /*
+    let todo1 = "get groceries";
+    let todo2 = "wash car";
+    let todo3 = "make dinner";
+    let todo4 = "another todo"
+
+    //after creating my variables, the next thing i have to do is to create the "div" html element that will help us contain these variable and display them on the web page.
+
+    let element = document.createElement('div'); // this creates the div element.
+
+    element.innerText = todo1; // this element.innerText is a command that helps us assign a content to the div we created, in order words, it carries the values stored in todo1 and places it inside the div.
+    document.body.appendChild(element);
+
+    element = document.createElement('div');
+    element.innerText = todo2;
+    document.body.appendChild(element);
+
+    element = document.createElement('div');
+    element.innerText = todo3;
+    document.body.appendChild(element);
+
+    function todoList(todo){
+      element = document.createElement('div');
+    element.innerText = todo;
+    document.body.appendChild(element);
+    }
+
+    todoList(todo1);
+    todoList(todo2);
+    todoList(todo3);
+    todoList(todo4);
+    
+/*
+    // TASK
+    
+    
+
+    let element1 = document.createElement('button');
+    element1.innerText = "Click Me";
+    document.body.appendChild(element1);
+
+    element1 = document.createElement('button');
+    element1.innerText = "Click Me";
+    document.body.appendChild(element1);
+   
+    let title = "WEBSIITE";
+
+    let element2 = document.createElement('title');
+    element2.innerText = title;
+    document.head.appendChild(element2);
+*/
+      //ARRAY : This represents a list of values. this helps our todo list add values without having to modify the code.
+
+      let todos = [{
+        todo: "get groceries",
+        dueDate: "2023-23-08",
+        id: "id1"
+      },
+      {
+        todo: "wash car",
+        dueDate: "2023-23-09",
+        id: "id2"
+      },
+      {
+        todo:  "make dinner",
+        dueDate: "2023-23-10",
+        id: "id3"
+      }];
+
+      function createTodo(content, Day){
+        let id = '' + new Date().getTime();
+
+
+         todos.push({
+          todo: content,
+          dueDate: Day,
+          id : id
+         });
+      }
+
+      render();
+
+       function removeButton(event){
+      const removeTodo = event.target;
+      const idToRemove = removeTodo.id;
+
+     todos = todos.filter(
+        function(todos){
+          if (todos.id === idToRemove){
+            return (false);
+          }else {
+            return(true);
+          }
+        }
+      )
+     render();
+      };
+      
+      function render(){
+        document.getElementById('todo-list').innerHTML = '';
+
+
+        todos.forEach(function (todos) {
+       let element = document.createElement("div");
+       let todoList = document.getElementById('todo-list');
+        element.innerText = todos.todo + " " +  todos.dueDate;
+        let deleteButton = document.createElement('button')
+        deleteButton.innerText = 'Delete'
+        deleteButton.style = 'margin-left:13px; background-color:red;color:white;'
+        deleteButton.id = todos.id
+        deleteButton.onclick = removeButton;
+        element.appendChild(deleteButton)
+        todoList.appendChild(element);
+        
+      });
+      };
+render()
+      
+      function addTodo() {
+          let textbox = document.getElementById("todo");
+          let content = textbox.value;
+          let dueDate = document.getElementById('due-dates')
+          let Day = dueDate.value;
+          createTodo(content, Day);
+         textbox.value = ''
+         textbox.placeholer = 'Add to do'
+         dueDate.value = ''
+         dueDate.placeholer = 'mm/dd/yyyy'
+         render();
+         
+      }
+
+
+      
+    </script>
+  </body>
+</html>
